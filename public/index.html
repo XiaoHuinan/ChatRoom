@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多人在线聊天室</title>
+	<link rel="stylesheet" type="text/css" href="assets/style/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./assets/style/app.css">
+	<script type="text/javascript" src="assets/js/jquery-2.2.3.min.js"></script>
+	<script src="assets/js/angular.min.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript" src="assets/js/app.js"></script>
+</head>
+<body ng-app="chatRoom" ng-controller="chatCtrl" class="container">
+	<!-- 登录 开始 -->
+	<div class="userform-wrapper" ng-show="!haslogined">
+		<form  class="form-inline" ng-submit="login()">
+			<div class="form-group">
+				<div class="input-group">
+					<div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+					<!-- 昵称 -->
+					<input type="text" class="form-control" id="nickname" placeholder="Your Nickname" ng-model="nickname" required/>
+				</div>
+			</div>
+			<button type="submit" class="btn btn-primary" ng-disabled="userform.$invalid">LOG IN</button>
+			<p ng-show="userExisted" class="help-block"><span class="glyphicon glyphicon-flash"></span>A user with this nickname already exists.</p>
+		</form>
+	</div>
+	<!-- 登录 结束 -->
+	<!-- 聊天室 开始 -->
+	<div class="chatroom-wrapper" ng-show="haslogined">
+	   <div class="row">
+	   <!-- 左侧聊天列表 -->
+	   	<div class="list panel panel-success col-md-3 col-sm-3">
+	   		<div class="panel-heading">当前在线<span ng-bind="(users.length-1)"></span>人</div>
+	   		<div class="panel-body">
+	   		    <!-- info='user' info 和父scope的user绑定到了一起 -->
+	   			<user iscurrentreceiver="receiver===user.nickname" info="user" ng-click="setReceiver(user.nickname)" ng-repeat="user in users"></user>
+	   		</div>
+	   	</div>
+	   	<!-- 右侧聊天内容 -->
+	   	<div class="chatroom panel panel-success col-md-9 col-sm-9">
+	   		<div class="panel-heading">{{receiver?receiver:"群聊"}}</div>
+	   		<div class="panel-body">
+	   		    <!-- self="nickname" self 和父scope的nickname绑定到了一起 -->
+	   			<message self="nickname" scrolltothis="scrollToBottom()" info="message" ng-repeat="message in messages"></message>
+	   		</div>
+	   		<div class="message-wrapper panel-footer">
+	   			<form class="post-form form-inline" novalidate name="postform" ng-submit="postMessage()">
+	   			    <input type="text" class="form-control" ng-model="words" placeholder="说点什么呗" required>
+	   			    <!-- $invalid 为真，则说明不能再次发送 -->
+	   			    <button type="submit" class="btn btn-success" ng-disabled="postform.$invalid">发送</button>
+	   			</form>
+	   			
+	   		</div>
+	   	</div>
+	   </div>	
+	</div>
+	<!-- 聊天室 结束 -->
+</body>
+</html>

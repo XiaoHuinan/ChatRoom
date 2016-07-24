@@ -1,0 +1,146 @@
+@charset "utf-8";
+/*public css*/
+html,body {
+	height:100%;
+}
+/* 登录   “页面”  */
+.userform-wrapper {
+	text-align: center;
+	margin-top: 200px;
+}
+.userform-wrapper .form-inline .help-block {
+	margin-top:20px;
+	color:red;
+}
+/*聊天页 左侧列表*/
+.list.panel {
+	overflow: auto;
+}
+.list.panel .panel-heading {
+	text-align: center;
+}
+.list.panel .panel-heading span {
+	display:inline-block;
+	width:20px;
+	height:20px;
+	border-radius: 50%;
+	vertical-align: middle;
+	background-color: #65b0a9;
+	color: #fff;
+    text-align: center;
+    margin-right:10px;
+    margin-left:10px;
+}
+.chatroom-wrapper .list .panel-body .user {
+  padding:10px;
+  border:1px dotted #bbb;
+}
+.chatroom-wrapper .list .panel-body .user:hover {
+  background-color: #f5faff;
+  cursor: pointer;
+  
+}
+.user span.avatar {
+	display:inline-block;
+	width:30px;
+	height:30px;
+	vertical-align: middle;
+	margin-right:20px;
+}
+.user .unread {
+	color:red;
+	margin-left: 10px;
+}
+/*聊天页 右侧列表*/
+.chatroom-wrapper {
+	height:100%;
+}
+.chatroom.panel {
+	height:100%;
+	border-radius: 10px;
+	overflow: auto;
+	position: relative;
+	padding:0;
+}
+.chatroom-wrapper .row {
+	height:100%;
+}
+.chatroom.panel  .panel-heading {
+	text-align:center;
+}
+.chatroom.panel .panel-body {
+	text-align: center;
+	overflow: auto;
+}
+.chatroom.panel .message-wrapper.panel-footer {
+	position: absolute;
+	bottom:0px;
+	width:100%;
+	margin:0 auto;
+}
+.chatroom.panel .message-wrapper.panel-footer input[type="text"] {
+	width:80%;
+}
+.chatroom.panel .message-wrapper.panel-footer button {
+	width:15%;
+}
+.system-notification {
+	display: inline-block;
+	text-align: center;
+	background-color:#ffa07a;
+	color:#fff;
+	padding: 5px 20px;
+	margin-bottom: 10px;
+	border-radius: 5px;
+}
+.system-notification.notification-bye {
+	background-color:#926e5f;
+}
+.content-wrapper span.avatar {
+	display:inline-block;
+	width:30px;
+	height:30px;
+	vertical-align: middle;
+	margin-left:10px;
+	
+}
+
+.chatroom.panel .panel-body .normal-message.ng-scope {
+   margin:10px 0;
+   position: relative;
+} 
+.chatroom.panel .panel-body .normal-message.ng-scope .content-wrapper {
+	position: relative;
+}
+.chatroom.panel .panel-body .normal-message.ng-scope.self {
+	text-align: right;
+}
+.chatroom.panel .panel-body .normal-message.ng-scope.self span.content {
+	display: inline-block;
+	min-width: 80px;
+	height: 30px;
+	line-height: 30px;
+	background: #b2e281;
+	vertical-align: middle;
+	height: 30px;
+	line-height: 30px;
+	padding: 0 20px;
+}
+.chatroom.panel .panel-body .normal-message.ng-scope.others {
+	text-align: left;
+}
+
+.chatroom.panel .panel-body .normal-message.ng-scope.others span.content {
+	display: inline-block;
+	min-width: 80px;
+	height: 30px;
+	line-height: 30px;
+	
+	vertical-align: middle;
+	height: 30px;
+	line-height: 30px;
+	padding: 0 20px;
+	position: absolute;
+	left: 50px;
+	background-color: #fca5d2;
+}

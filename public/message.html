@@ -1,0 +1,13 @@
+<div ng-switch on="info.type">
+    <!-- 欢迎消息 -->
+    <div class="system-notification notification-welcome" ng-switch-when="welcome"><strong>系统提示:&nbsp;&nbsp;</strong><span>{{info.text}}</span>来啦,大家不要放过他~
+    </div>
+    <!-- 退出消息 -->
+    <div class="system-notification notification-bye" ng-switch-when="bye"><strong>系统提示:&nbsp;&nbsp;</strong>
+        <span>{{info.text}}</span>童鞋睡觉觉去了，大家掌声欢送</div>
+    <!-- 普通消息 -->             
+    <div class="normal-message" ng-class="{others:self!==info.from,self:self===info.from}"  ng-switch-when="normal">
+        <div class="name-wrapper"><span>{{info.from}} @ </span><span>{{time |  date: 'HH:mm:ss' }}</span></div>
+        <div class="content-wrapper"><span class="content">{{info.text}}</span><span class="avatar"></span></div>
+    </div>
+</div>
