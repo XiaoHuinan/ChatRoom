@@ -12,7 +12,8 @@
 
 ## 如何使用？
 
-1 运行`git clone https://github.com/ningbo16/ChatRoom.git`命令
-2 运行`npm install `，安装依赖
-3 运行'node app'
-4 在浏览器输入`http://localhost:8080/`
+1. 运行`git clone https://github.com/ningbo16/ChatRoom.git`命令
+2. 运行`npm install `，安装依赖
+3. 运行`node app`
+4. 在浏览器输入`http://localhost:8080/`
+
